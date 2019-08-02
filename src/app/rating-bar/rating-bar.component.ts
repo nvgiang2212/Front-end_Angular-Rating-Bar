@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 interface IRatingUnit {
   value: number;
@@ -8,10 +8,9 @@ interface IRatingUnit {
 @Component({
   selector: 'app-rating-bar',
   templateUrl: './rating-bar.component.html',
-  styleUrls: ['./rating-bar.component.css']
+  styleUrls: ['./rating-bar.component.scss']
 })
-export class RatingBarComponent implements OnInit {
-
+export class RatingBarComponent implements OnInit, OnChanges {
   @Input()
   max = 5;
   @Input()
@@ -27,7 +26,6 @@ export class RatingBarComponent implements OnInit {
   constructor() {
   }
 
-  // tslint:disable-next-line:use-lifecycle-interface
   ngOnChanges(changes: SimpleChanges) {
     if ('max' in changes) {
       let max = changes.max.currentValue;
